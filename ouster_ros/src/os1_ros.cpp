@@ -111,6 +111,9 @@ void spin(const client& cli,
     lidar_packet.size = lidar_packet_bytes;
     imu_packet.size = imu_packet_bytes;
 
+    lidar_packet.header.frame_id = "os1_lidar_packet";
+    imu_packet.header.frame_id = "os1_imu_packet";
+
     
     lidar_packet.buf.resize(lidar_packet_bytes + 1);
     imu_packet.buf.resize(imu_packet_bytes + 1);
