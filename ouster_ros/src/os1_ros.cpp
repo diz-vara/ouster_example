@@ -106,7 +106,15 @@ void add_packet_to_cloud(ns scan_start_ts, ns scan_duration,
 void spin(const client& cli,
           const std::function<void(const PacketMsg& pm)>& lidar_handler,
           const std::function<void(const PacketMsg& pm)>& imu_handler) {
+    ros::Time now = ros::Time::now(); 
     PacketMsg lidar_packet, imu_packet;
+
+    lidar_packet.size = lidar_packet_bytes;
+    imu_packet.size = imu_packet_bytes;
+
+    lidar_packet.header.stamp = now;
+    imu_packet.header.stamp = now; 
+    
     lidar_packet.buf.resize(lidar_packet_bytes + 1);
     imu_packet.buf.resize(imu_packet_bytes + 1);
 
