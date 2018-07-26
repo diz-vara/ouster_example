@@ -20,6 +20,7 @@
 namespace ouster_ros {
 namespace OS1 {
 
+
 using CloudOS1 = pcl::PointCloud<PointOS1>;
 using ns = std::chrono::nanoseconds;
 
